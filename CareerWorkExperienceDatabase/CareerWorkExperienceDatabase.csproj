@@ -78,6 +78,14 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Business.cs" />
+    <Compile Include="BusinessNote.cs" />
+    <Compile Include="City.cs" />
+    <Compile Include="CopsCategory.cs" />
+    <Compile Include="Position.cs" />
+    <Compile Include="PositionCategory.cs" />
+    <Compile Include="PositionNote.cs" />
+    <Compile Include="PositionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <PropertyGroup>
