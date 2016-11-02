@@ -84,17 +84,26 @@
     <Compile Include="Model\BusinessNote.cs" />
     <Compile Include="Model\Category.cs" />
     <Compile Include="Model\City.cs" />
-    <Compile Include="Model\CopsCategory.cs" />
+    <Compile Include="Model\COPSCategory.cs" />
     <Compile Include="Model\Position.cs" />
     <Compile Include="Model\PositionCategory.cs" />
     <Compile Include="Model\PositionNote.cs" />
     <Compile Include="Model\PositionReview.cs" />
     <Compile Include="Model\PositionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\ActivePositionRepository.cs" />
+    <Compile Include="Repositories\BusinessNoteRepository.cs" />
+    <Compile Include="Repositories\BusinessRepository.cs" />
+    <Compile Include="Repositories\CategoryRepository.cs" />
+    <Compile Include="Repositories\CityRepository.cs" />
+    <Compile Include="Repositories\COPSCategoryRepository.cs" />
+    <Compile Include="Repositories\PositionCategoryRepository.cs" />
+    <Compile Include="Repositories\PositionNoteRepository.cs" />
+    <Compile Include="Repositories\PositionRepository.cs" />
+    <Compile Include="Repositories\PositionReviewRepository.cs" />
+    <Compile Include="Repositories\PositionTypeRepository.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Repositories\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

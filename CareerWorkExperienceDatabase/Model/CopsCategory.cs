@@ -5,7 +5,7 @@ using System.Web;
 
 namespace CareerWorkExperienceDatabase
 {
-    public class CopsCategory
+    public class COPSCategory
     {
         public int ID { get; }
         public string Name { get; }
