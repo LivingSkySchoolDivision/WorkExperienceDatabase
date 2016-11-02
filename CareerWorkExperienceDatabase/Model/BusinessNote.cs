@@ -11,6 +11,5 @@ namespace CareerWorkExperienceDatabase
         public int BusinessID { get; }
         public string Notes { get; }
         public bool Private { get; }
-
     }
 }

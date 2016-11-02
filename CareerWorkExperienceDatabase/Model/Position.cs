@@ -19,6 +19,5 @@ namespace CareerWorkExperienceDatabase
         public string LastUpdatedBy { get; }
         public DateTime Expires { get; }
         public string SearchTags { get; }
-
     }
 }

@@ -9,6 +9,5 @@ namespace CareerWorkExperienceDatabase
     {
         public int ID { get; }
         public string Name { get; }
-
     }
 }

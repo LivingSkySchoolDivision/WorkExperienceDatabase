@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
+    <None Include="Properties\PublishProfiles\Work Experience Server.pubxml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
@@ -78,15 +79,21 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Business.cs" />
-    <Compile Include="BusinessNote.cs" />
-    <Compile Include="City.cs" />
-    <Compile Include="CopsCategory.cs" />
-    <Compile Include="Position.cs" />
-    <Compile Include="PositionCategory.cs" />
-    <Compile Include="PositionNote.cs" />
-    <Compile Include="PositionType.cs" />
+    <Compile Include="Model\ActivePosition.cs" />
+    <Compile Include="Model\Business.cs" />
+    <Compile Include="Model\BusinessNote.cs" />
+    <Compile Include="Model\Category.cs" />
+    <Compile Include="Model\City.cs" />
+    <Compile Include="Model\CopsCategory.cs" />
+    <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\PositionCategory.cs" />
+    <Compile Include="Model\PositionNote.cs" />
+    <Compile Include="Model\PositionReview.cs" />
+    <Compile Include="Model\PositionType.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Repositories\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

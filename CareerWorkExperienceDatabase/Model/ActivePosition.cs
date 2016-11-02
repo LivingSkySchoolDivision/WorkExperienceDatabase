@@ -11,6 +11,6 @@ namespace CareerWorkExperienceDatabase
         public int PositionID { get; }
         public string StudentName { get; }
         public DateTime Start { get; }
-        public DateTime End { get; }        
+        public DateTime End { get; }
     }
 }

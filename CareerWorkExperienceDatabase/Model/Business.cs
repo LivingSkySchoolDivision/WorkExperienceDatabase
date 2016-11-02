@@ -21,6 +21,5 @@ namespace CareerWorkExperienceDatabase
         public bool RqCriminalRecordCheck { get; }
         public string SpecialRequirements { get; }
         public bool NotInterested { get; }
-        
     }
 }
