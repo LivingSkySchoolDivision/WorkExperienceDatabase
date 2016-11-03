@@ -7,17 +7,17 @@ namespace CareerWorkExperienceDatabase
 {
     public class Position
     {
-        public int ID { get; }
-        public string Name { get; }
-        public string Description { get; }
-        public int BusinessID { get; }
-        public int PositionTypeID { get; }
-        public bool Seasonal { get; }
-        public DateTime StartDate { get; }
-        public DateTime EndDate { get; }
-        public DateTime LastUpdated { get; }
-        public string LastUpdatedBy { get; }
-        public DateTime Expires { get; }
-        public string SearchTags { get; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
+        public int BusinessID { get; set; }
+        public int PositionTypeID { get; set; }
+        public bool Seasonal { get; set; }
+        public DateTime StartDate { get; set; }
+        public DateTime EndDate { get; set; }
+        public DateTime LastUpdated { get; set; }
+        public string LastUpdatedBy { get; set; }
+        public DateTime Expires { get; set; }
+        public string SearchTags { get; set; }
     }
 }

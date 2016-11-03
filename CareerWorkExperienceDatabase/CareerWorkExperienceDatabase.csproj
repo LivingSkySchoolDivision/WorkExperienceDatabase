@@ -105,11 +105,11 @@
     <Compile Include="Repositories\PositionNoteRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\PositionReviewRepository.cs" />
+    <Compile Include="Repositories\Positions.cs" />
     <Compile Include="Repositories\PositionTypeRepository.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="WebForm1.aspx.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="WebForm1.aspx.designer.cs">
       <DependentUpon>WebForm1.aspx</DependentUpon>

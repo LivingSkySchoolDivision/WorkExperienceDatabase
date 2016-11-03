@@ -12,7 +12,7 @@ namespace CareerWorkExperienceDatabase
     {
         private string SQLQuery = "SELECT * FROM Businesses";
 
-        public BusinessRepository() { }
+       
         
         private Business dataReaderToBusiness(SqlDataReader sqlRow)
         {
@@ -36,7 +36,7 @@ namespace CareerWorkExperienceDatabase
         }
 
         public List<Business> GetAll()
-        {
+       {
             List<Business> returnMe = new List<Business>();
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
