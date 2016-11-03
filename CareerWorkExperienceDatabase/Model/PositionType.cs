@@ -7,7 +7,7 @@ namespace CareerWorkExperienceDatabase
 {
     public class PositionType
     {
-        public int ID { get; }
-        public string Name { get; }
+        public int ID { get; set; }
+        public string Name { get; set; }
     }
 }

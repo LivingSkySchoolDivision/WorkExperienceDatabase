@@ -7,12 +7,12 @@ namespace CareerWorkExperienceDatabase
 {
     public class PositionReview
     {
-        public int ID { get; }
-        public int PoitionID { get; }
-        public string Username { get; }
-        public string Comment { get; }
-        public int Score { get; }
-        public bool StaffReviewer { get; }
-        public bool Private { get; }
+        public int ID { get; set; }
+        public int PositionID { get; set; }
+        public string Username { get; set; }
+        public string Comment { get; set; }
+        public int Score { get; set; }
+        public bool StaffReviewer { get; set; }
+        public bool Private { get; set; }
     }
 }
