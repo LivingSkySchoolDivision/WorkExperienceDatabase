@@ -7,9 +7,9 @@ namespace CareerWorkExperienceDatabase
 {
     public class Category
     {
-        public int ID { get; }
-        public int COPSCategoryID { get; }
-        public string Name { get; }
-        public string Description { get; }
+        public int ID { get; set; }
+        public int COPSCategoryID { get; set; }
+        public string Name { get; set; }
+        public string Description { get; set; }
     }
 }

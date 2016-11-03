@@ -7,8 +7,8 @@ namespace CareerWorkExperienceDatabase.Model
 {
     public class PositionNote
     {
-        public int ID { get; }
-        public int PositionID { get; }
-        public string Note { get; }
+        public int ID { get; set; }
+        public int PositionID { get; set; }
+        public string Note { get; set; }
     }
 }

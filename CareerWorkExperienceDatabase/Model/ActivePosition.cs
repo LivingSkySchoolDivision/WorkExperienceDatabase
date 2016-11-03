@@ -7,10 +7,10 @@ namespace CareerWorkExperienceDatabase
 {
     public class ActivePosition
     {
-        public int ID { get; }
-        public int PositionID { get; }
-        public string StudentName { get; }
-        public DateTime Start { get; }
-        public DateTime End { get; }
+        public int ID { get; set; }
+        public int PositionID { get; set; }
+        public string StudentName { get; set; }
+        public DateTime Start { get; set; }
+        public DateTime End { get; set; }
     }
 }
