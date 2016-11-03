@@ -67,7 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <Content Include="WebForm1.aspx" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Jocelyn.pubxml" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Kolby.pubxml" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Mark.pubxml" />
@@ -107,13 +106,6 @@
     <Compile Include="Repositories\PositionReviewRepository.cs" />
     <Compile Include="Repositories\PositionTypeRepository.cs" />
     <Compile Include="Settings.cs" />
-    <Compile Include="WebForm1.aspx.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="WebForm1.aspx.designer.cs">
-      <DependentUpon>WebForm1.aspx</DependentUpon>
-    </Compile>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>
