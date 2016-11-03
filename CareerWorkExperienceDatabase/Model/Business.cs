@@ -7,19 +7,19 @@ namespace CareerWorkExperienceDatabase
 {
     public class Business
     {
-        public int ID { get; }
-        public string Name { get; }
-        public string Address { get; }
-        public int CityID { get; }
-        public string ContactName { get; }
-        public string ContactPhone { get; }
-        public string ContactEmail { get; }
-        public DateTime LastUpdated { get; }
-        public string LastUpdatedBy { get; }
-        public DateTime Expries { get; }
-        public bool RqInterview { get; }
-        public bool RqCriminalRecordCheck { get; }
-        public string SpecialRequirements { get; }
-        public bool NotInterested { get; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string Address { get; set; }
+        public int CityID { get; set; }
+        public string ContactName { get; set; }
+        public string ContactPhone { get; set; }
+        public string ContactEmail { get; set; }
+        public DateTime LastUpdated { get; set; }
+        public string LastUpdatedBy { get; set; }
+        public DateTime Expires { get; set; }
+        public bool RqInterview { get; set; }
+        public bool RqCriminalRecordCheck { get; set; }
+        public string SpecialRequirements { get; set; }
+        public bool NotInterested { get; set; }
     }
 }

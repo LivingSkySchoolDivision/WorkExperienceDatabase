@@ -7,5 +7,6 @@ namespace CareerWorkExperienceDatabase.Repositories
 {
     public class PositionTypeRepository
     {
+                 
     }
 }
