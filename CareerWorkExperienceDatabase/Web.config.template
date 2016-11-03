@@ -18,4 +18,13 @@
         warningLevel="4" compilerOptions="/langversion:14 /nowarn:41008 /define:_MYTYPE=\&quot;Web\&quot; /optionInfer+"/>
     </compilers>
   </system.codedom>
+
+  <connectionStrings>
+    <add
+      name="WorkExperienceDatabase"
+      connectionString="data source=SERVER;initial catalog=DATABASE;user id=USERNAME;password=PASSWORD;Trusted_Connection=false"
+      providerName="System.Data.SqlClient"
+      />
+  </connectionStrings>
+
 </configuration>

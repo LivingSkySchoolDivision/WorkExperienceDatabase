@@ -67,16 +67,18 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\Work Experience Server.pubxml" />
-    <None Include="Web.Debug.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Jocelyn.pubxml" />
+    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Kolby.pubxml" />
+    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Mark.pubxml" />
+    <None Include="Web.config.Debug.TEMPLATE">
+      <DependentUpon>Web.config.TEMPLATE</DependentUpon>
     </None>
-    <None Include="Web.Release.config">
-      <DependentUpon>Web.config</DependentUpon>
+    <None Include="Web.config.Release.TEMPLATE">
+      <DependentUpon>Web.config.TEMPLATE</DependentUpon>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="Web.config" />
+    <None Include="Web.config.TEMPLATE" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Model\ActivePosition.cs" />
