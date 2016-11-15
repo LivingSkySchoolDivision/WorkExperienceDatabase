@@ -20,6 +20,11 @@ namespace CareerWorkExperienceDatabase
         public bool RqInterview { get; set; }
         public bool RqCriminalRecordCheck { get; set; }
         public string SpecialRequirements { get; set; }
-        public bool NotInterested { get; set; }
+        public bool Interested { get; set; }
+        public bool NotInterested { get
+            {
+                return !Interested;
+            }
+        }
     }
 }

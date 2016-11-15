@@ -31,7 +31,7 @@ namespace CareerWorkExperienceDatabase
                 RqInterview = Parsers.ParseBool(sqlRow["RqInterview"].ToString()),
                 RqCriminalRecordCheck = Parsers.ParseBool(sqlRow["RqCriminalRecordCheck"].ToString()),
                 SpecialRequirements = sqlRow["SpecialRequirements"].ToString(),
-                NotInterested = Parsers.ParseBool(sqlRow["NotInterested"].ToString())
+                Interested = Parsers.ParseBool(sqlRow["Interested"].ToString())
             };
         }
 

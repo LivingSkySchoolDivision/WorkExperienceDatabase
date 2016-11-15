@@ -5,14 +5,21 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Web;
 
-namespace CareerWorkExperienceDatabase.Repositories
+namespace CareerWorkExperienceDatabase
 {
     public class PositionRepository
     {
+        private readonly PositionTypeRepository positionTypeRepo;
+        private readonly PositionCategoryRepository positionCategoryRepo;
 
-        private string SQLQuery = "SELECT * FROM Businesses";
+        private string SQLQuery = "SELECT * FROM Positions";
+        
 
-
+        public PositionRepository()
+        {
+            positionTypeRepo = new PositionTypeRepository();
+            positionCategoryRepo = new PositionCategoryRepository();
+        }
 
         private Position dataReaderToPosition(SqlDataReader sqlRow)
         {
@@ -22,14 +29,15 @@ namespace CareerWorkExperienceDatabase.Repositories
                 Name = sqlRow["Name"].ToString(),
                 Description = sqlRow["Description"].ToString(),
                 BusinessID = Parsers.ParseInt(sqlRow["BusinessID"].ToString()),
-                PositionTypeID = Parsers.ParseInt(sqlRow["PositiontypeID"].ToString()),
-                Seasonal = Parsers.ParseBool(sqlRow["Seasona1"].ToString()),
+                PositionTypeID = Parsers.ParseInt(sqlRow["PositionTypeID"].ToString()),
+                Seasonal = Parsers.ParseBool(sqlRow["Seasonal"].ToString()),
                 StartDate = Parsers.ParseDate(sqlRow["StartDate"].ToString()),
                 EndDate = Parsers.ParseDate(sqlRow["EndDate"].ToString()),
                 LastUpdated = Parsers.ParseDate(sqlRow["LastUpdated"].ToString()),
                 LastUpdatedBy = sqlRow["LastUpdatedBy"].ToString(),
                 Expires = Parsers.ParseDate(sqlRow["Expires"].ToString()),
-                SearchTags = sqlRow["SearchTags"].ToString()
+                SearchTags = sqlRow["SearchTags"].ToString(),
+                CategoryIDs = positionCategoryRepo.GetCategoriesForPosition(Parsers.ParseInt(sqlRow["ID"].ToString()))
             };
         }
 
@@ -71,7 +79,7 @@ namespace CareerWorkExperienceDatabase.Repositories
                 {
                     sqlCommand.Connection = connection;
                     sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = SQLQuery + " WHERE NotInterested=0";
+                    sqlCommand.CommandText = "SELECT Positions.* FROM Positions LEFT OUTER JOIN Businesses ON Positions.BusinessID=Businesses.ID WHERE BUsinesses.Interested=1";
                     sqlCommand.Connection.Open();
 
                     SqlDataReader dataReader = sqlCommand.ExecuteReader();

@@ -11,20 +11,11 @@ namespace CareerWorkExperienceDatabase
     {
         private string SQLQuery = "SELECT * FROM Categories";
 
-        private Category dataReaderToCategory(SqlDataReader sqlRow)
-        {
-            return new Category()
-            {
-                ID = Parsers.ParseInt(sqlRow["ID"].ToString()),
-                COPSCategoryID = Parsers.ParseInt(sqlRow["COPSCategoryID"].ToString()),
-                Name = sqlRow["Name"].ToString(),
-                Description = sqlRow["Description"].ToString(),
-            };
-        }
+        private Dictionary<int, Category> _cache;
 
-        public List<Category> GetAll()
+        public CategoryRepository()
         {
-            List<Category> returnMe = new List<Category>();
+            _cache = new Dictionary<int, Category>();
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -40,42 +31,63 @@ namespace CareerWorkExperienceDatabase
                     {
                         while (dataReader.Read())
                         {
-                            returnMe.Add(dataReaderToCategory(dataReader));
+                            Category cat = dataReaderToCategory(dataReader);
+                            if (cat != null)
+                            {
+                                _cache.Add(cat.ID, cat);
+                            }
                         }
                     }
                     sqlCommand.Connection.Close();
+                }
+            }
+        }
+
+        private Category dataReaderToCategory(SqlDataReader sqlRow)
+        {
+            return new Category()
+            {
+                ID = Parsers.ParseInt(sqlRow["ID"].ToString()),
+                COPSCategoryID = Parsers.ParseInt(sqlRow["COPSCategoryID"].ToString()),
+                Name = sqlRow["Name"].ToString(),
+                Description = sqlRow["Description"].ToString(),
+            };
+        }
+        
+
+        public Category Get(int categoryID)
+        {
+            if (_cache.ContainsKey(categoryID))
+            {
+                return _cache[categoryID];
+            } else
+            {
+                return null;
+            }
+        }
+
+
+        public List<Category> Get(List<int> categoryIDs)
+        {
+            List<Category> returnMe = new List<Category>();
+
+            foreach(int id in categoryIDs)
+            {
+                if (_cache.ContainsKey(id))
+                {
+                    if (!returnMe.Contains(_cache[id]))
+                    {
+                        returnMe.Add(_cache[id]);
+                    }
                 }
             }
 
             return returnMe;
         }
 
-        public Category Get(int categoryID)
+        public List<Category> GetAll()
         {
-            Category returnMe = null;
-
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
-            {
-                using (SqlCommand sqlCommand = new SqlCommand())
-                {
-                    sqlCommand.Connection = connection;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = SQLQuery + " WHERE ID=" + categoryID;
-                    sqlCommand.Connection.Open();
-
-                    SqlDataReader dataReader = sqlCommand.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        while (dataReader.Read())
-                        {
-                            returnMe = dataReaderToCategory(dataReader);
-                        }
-                    }
-                    sqlCommand.Connection.Close();
-                }
-            }
-
-            return returnMe;
+            return _cache.Values.ToList();
         }
 
         public List<Category> Find(string name)

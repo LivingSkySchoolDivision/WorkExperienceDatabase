@@ -66,10 +66,17 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Categories.aspx" />
+    <Content Include="Images\lsky_logo_text.png" />
+    <Content Include="index.aspx" />
     <Content Include="packages.config" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Jocelyn.pubxml" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Kolby.pubxml" />
     <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Mark.pubxml" />
+    <Content Include="Styles\MainStyles.css" />
+    <Content Include="Templates\Template-Main.Master" />
+    <Content Include="Templates\Template-Login.Master" />
+    <Content Include="Templates\Template-Admin.Master" />
     <None Include="Web.config.Debug.TEMPLATE">
       <DependentUpon>Web.config.TEMPLATE</DependentUpon>
     </None>
@@ -81,6 +88,20 @@
     <None Include="Web.config.TEMPLATE" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Categories.aspx.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Categories.aspx.designer.cs">
+      <DependentUpon>Categories.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="index.aspx.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="index.aspx.designer.cs">
+      <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Model\ActivePosition.cs" />
     <Compile Include="Model\Business.cs" />
     <Compile Include="Model\BusinessNote.cs" />
@@ -88,7 +109,6 @@
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\COPSCategory.cs" />
     <Compile Include="Model\Position.cs" />
-    <Compile Include="Model\PositionCategory.cs" />
     <Compile Include="Model\PositionNote.cs" />
     <Compile Include="Model\PositionReview.cs" />
     <Compile Include="Model\PositionType.cs" />
@@ -107,6 +127,27 @@
     <Compile Include="Repositories\Positions.cs" />
     <Compile Include="Repositories\PositionTypeRepository.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="Templates\Template-Admin.Master.cs">
+      <DependentUpon>Template-Admin.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Template-Admin.Master.designer.cs">
+      <DependentUpon>Template-Admin.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Template-Login.Master.cs">
+      <DependentUpon>Template-Login.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Template-Login.Master.designer.cs">
+      <DependentUpon>Template-Login.Master</DependentUpon>
+    </Compile>
+    <Compile Include="Templates\Template-Main.Master.cs">
+      <DependentUpon>Template-Main.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Templates\Template-Main.Master.designer.cs">
+      <DependentUpon>Template-Main.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup />
   <PropertyGroup>

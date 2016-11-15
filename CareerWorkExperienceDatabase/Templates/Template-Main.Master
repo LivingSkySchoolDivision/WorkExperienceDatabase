@@ -1,0 +1,44 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Template-Main.master.cs" Inherits="CareerWorkExperienceDatabase.Templates.Template_Main" %>
+
+<!DOCTYPE html>
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
+    <link rel="stylesheet" href="../Styles/MainStyles.css" />
+</head>
+<body>
+    <form id="form1" runat="server">
+
+    <!-- Header section -->
+    <table border=0 style="width: 1000px; margin-left: auto; margin-right: auto;">
+        <tr height=100>
+          <td width="200" rowspan="2"><a href="/"><img src="Images/lsky_logo_text.png" style="width: 200px; margin-right: 25px" alt="Logo"/></a></td>
+          <td colspan="2" valign=bottom style="border-bottom: 4px solid black;"><div class="MainTitle">Career Work Experience Database</div></td>
+        </tr>
+        <tr height=100>
+          <td valign="top" class="menu_bar">
+            <a href="/">Home</a>
+            <a href="Locations.aspx">Locations</a>
+            <a href="Categories.aspx">Categories</a>
+            <a href="SummerJobs.aspx">Summer Jobs</a>
+          </td>
+          <td valign="top" style="text-align: right;"><input type="textbox" value="Search..." style="width: 200px;">
+        </tr>
+      </table>
+        
+    <div class="page_container">
+    <asp:ContentPlaceHolder ID="body" runat="server">
+        
+    </asp:ContentPlaceHolder>
+    </div>
+    </form>
+
+    <div class="footer">
+      <!--<a href="#">Mobile Site</a>-->
+      <a href="http://www.lskysd.ca">Living Sky School Division No. 202</a>
+      </div>
+
+</body>
+</html>

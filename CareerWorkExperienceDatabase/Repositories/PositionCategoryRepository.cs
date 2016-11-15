@@ -9,20 +9,16 @@ namespace CareerWorkExperienceDatabase
 {
     public class PositionCategoryRepository
     {
-        private string SQLQuery = "SELECT * FROM PositionCategory";
-
-        private PositionCategory dataReaderToPositionCategory(SqlDataReader sqlRow)
+        private string SQLQuery = "SELECT * FROM PositionCategories";
+        
+        public List<int> GetPositionsForCategories(int categoryID)
         {
-            return new PositionCategory()
-            {
-                ID = Parsers.ParseInt(sqlRow["ID"].ToString()),
-                Name = sqlRow["Name"].ToString()
-            };
+            throw new NotImplementedException("Not implemented yet");
         }
 
-        public List<PositionCategory> GetAll()
+        public List<int> GetCategoriesForPosition(int positionID)
         {
-            List<PositionCategory> returnMe = new List<PositionCategory>();
+            List<int> returnMe = new List<int>();
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
             {
@@ -30,7 +26,7 @@ namespace CareerWorkExperienceDatabase
                 {
                     sqlCommand.Connection = connection;
                     sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = SQLQuery;
+                    sqlCommand.CommandText = SQLQuery + " WHERE PositionID=" + positionID;
                     sqlCommand.Connection.Open();
 
                     SqlDataReader dataReader = sqlCommand.ExecuteReader();
@@ -38,35 +34,14 @@ namespace CareerWorkExperienceDatabase
                     {
                         while (dataReader.Read())
                         {
-                            returnMe.Add(dataReaderToPositionCategory(dataReader));
-                        }
-                    }
-                    sqlCommand.Connection.Close();
-                }
-            }
-
-            return returnMe;
-        }
-
-        public PositionCategory Get(int PositionCategoryID)
-        {
-            PositionCategory returnMe = null;
-
-            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
-            {
-                using (SqlCommand sqlCommand = new SqlCommand())
-                {
-                    sqlCommand.Connection = connection;
-                    sqlCommand.CommandType = CommandType.Text;
-                    sqlCommand.CommandText = SQLQuery + " WHERE ID=" + PositionCategoryID;
-                    sqlCommand.Connection.Open();
-
-                    SqlDataReader dataReader = sqlCommand.ExecuteReader();
-                    if (dataReader.HasRows)
-                    {
-                        while (dataReader.Read())
-                        {
-                            returnMe = dataReaderToPositionCategory(dataReader);
+                            int categoryID = Parsers.ParseInt(dataReader["CategoryID"].ToString());
+                            if (categoryID > 0)
+                            {
+                                if (!returnMe.Contains(categoryID))
+                                {
+                                    returnMe.Add(categoryID);
+                                }
+                            }
                         }
                     }
                     sqlCommand.Connection.Close();

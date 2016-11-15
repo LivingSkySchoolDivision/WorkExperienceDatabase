@@ -19,5 +19,6 @@ namespace CareerWorkExperienceDatabase
         public string LastUpdatedBy { get; set; }
         public DateTime Expires { get; set; }
         public string SearchTags { get; set; }
+        public List<int> CategoryIDs { get; set; }
     }
 }
