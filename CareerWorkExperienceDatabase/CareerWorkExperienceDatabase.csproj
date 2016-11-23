@@ -70,13 +70,11 @@
     <Content Include="Images\lsky_logo_text.png" />
     <Content Include="index.aspx" />
     <Content Include="packages.config" />
-    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Jocelyn.pubxml" />
-    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Kolby.pubxml" />
-    <None Include="Properties\PublishProfiles\workexperience.lskysd.ca Test - Mark.pubxml" />
     <Content Include="Styles\MainStyles.css" />
     <Content Include="Templates\Template-Main.Master" />
     <Content Include="Templates\Template-Login.Master" />
     <Content Include="Templates\Template-Admin.Master" />
+    <None Include="Properties\PublishProfiles\WorkExperience.pubxml" />
     <None Include="Web.config.Debug.TEMPLATE">
       <DependentUpon>Web.config.TEMPLATE</DependentUpon>
     </None>
@@ -124,7 +122,6 @@
     <Compile Include="Repositories\PositionNoteRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\PositionReviewRepository.cs" />
-    <Compile Include="Repositories\Positions.cs" />
     <Compile Include="Repositories\PositionTypeRepository.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="Templates\Template-Admin.Master.cs">
