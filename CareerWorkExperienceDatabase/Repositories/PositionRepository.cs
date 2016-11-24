@@ -97,6 +97,39 @@ namespace CareerWorkExperienceDatabase
             return returnMe;
         }
 
+
+        public List<Position> GetRecentlyUpdated(int count)
+        {
+            List<Position> returnMe = new List<Position>();
+
+            if (count > 0)
+            {
+                using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+                {
+                    using (SqlCommand sqlCommand = new SqlCommand())
+                    {
+                        sqlCommand.Connection = connection;
+                        sqlCommand.CommandType = CommandType.Text;
+                        sqlCommand.CommandText = "SELECT TOP " + count + " Positions.* FROM Positions LEFT OUTER JOIN Businesses ON Positions.BusinessID=Businesses.ID WHERE BUsinesses.Interested=1 ORDER BY ";
+                        sqlCommand.Connection.Open();
+
+                        SqlDataReader dataReader = sqlCommand.ExecuteReader();
+                        if (dataReader.HasRows)
+                        {
+                            while (dataReader.Read())
+                            {
+                                returnMe.Add(dataReaderToPosition(dataReader));
+                            }
+                        }
+                        sqlCommand.Connection.Close();
+                    }
+                }
+            }
+
+            return returnMe;
+        }
+
+
         public Position Get(int ID)
         {
             Position returnMe = null;
@@ -124,9 +157,7 @@ namespace CareerWorkExperienceDatabase
 
             return returnMe;
         }
-
-
-
+        
         public List<Position> Find(string name)
         {
             List<Position> returnMe = new List<Position>();
@@ -153,6 +184,16 @@ namespace CareerWorkExperienceDatabase
             }
 
             return returnMe;
+        }
+
+        public void Put(Position thisPosition)
+        {
+            
+        }
+
+        public void Update(Position thisPosition)
+        {
+            
         }
 
     }
