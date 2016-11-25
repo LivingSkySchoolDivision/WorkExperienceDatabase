@@ -42,7 +42,6 @@ padding-left: 25px;
 }
 
 .floating_menu {
-float: right;
     width: 150px;
     padding-left: 25px;
     border-left: 1px solid rgba(0,0,0,0.1);
@@ -77,8 +76,40 @@ display: block;
 .position {
 width: 100%;
 margin-bottom: 20px;
+padding: 10px;
+border-left: 3px solid #C0C0C0;
+background-color: #F0F0F0;
+font-family: sans-serif;
 }
 
+.positionName{
+    font-weight: normal;
+    font-size: 16px;
+    text-transform: capitalize;
+
+}
+
+.positionName a {
+    text-decoration: none;
+}
+
+.businessName{
+    font-size: 14px;
+    color: #505050
+}
+
+.locationName{
+    font-size: 14px;
+    color: #505050
+}
+
+.mainPageTitle{
+    font-size: 16pt;
+    font-weight: bold;
+    margin-top: 25px;
+    margin-bottom: 10px;
+    font-family: sans-serif;
+}
 .position_name {
 font-weight: bold;
 }

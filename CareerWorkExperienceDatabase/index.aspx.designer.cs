@@ -13,6 +13,15 @@ namespace CareerWorkExperienceDatabase {
     public partial class index {
         
         /// <summary>
+        /// litCategories control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litCategories;
+        
+        /// <summary>
         /// litCities control.
         /// </summary>
         /// <remarks>
@@ -22,12 +31,12 @@ namespace CareerWorkExperienceDatabase {
         protected global::System.Web.UI.WebControls.Literal litCities;
         
         /// <summary>
-        /// litCategories control.
+        /// litUpdatedPositions control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Literal litCategories;
+        protected global::System.Web.UI.WebControls.Literal litUpdatedPositions;
     }
 }

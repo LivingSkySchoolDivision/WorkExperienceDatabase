@@ -66,14 +66,19 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="byCategory.aspx" />
+    <Content Include="byLocation.aspx" />
     <Content Include="Categories.aspx" />
     <Content Include="Images\lsky_logo_text.png" />
     <Content Include="index.aspx" />
+    <Content Include="Locations.aspx" />
     <Content Include="packages.config" />
     <Content Include="Styles\MainStyles.css" />
+    <Content Include="SummerJobs.aspx" />
     <Content Include="Templates\Template-Main.Master" />
     <Content Include="Templates\Template-Login.Master" />
     <Content Include="Templates\Template-Admin.Master" />
+    <Content Include="viewPosition.aspx" />
     <None Include="Properties\PublishProfiles\WorkExperience.pubxml" />
     <None Include="Web.config.Debug.TEMPLATE">
       <DependentUpon>Web.config.TEMPLATE</DependentUpon>
@@ -86,6 +91,20 @@
     <None Include="Web.config.TEMPLATE" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="byCategory.aspx.cs">
+      <DependentUpon>byCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="byCategory.aspx.designer.cs">
+      <DependentUpon>byCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="byLocation.aspx.cs">
+      <DependentUpon>byLocation.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="byLocation.aspx.designer.cs">
+      <DependentUpon>byLocation.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Categories.aspx.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -99,6 +118,13 @@
     </Compile>
     <Compile Include="index.aspx.designer.cs">
       <DependentUpon>index.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Locations.aspx.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Locations.aspx.designer.cs">
+      <DependentUpon>Locations.aspx</DependentUpon>
     </Compile>
     <Compile Include="Model\ActivePosition.cs" />
     <Compile Include="Model\Business.cs" />
@@ -124,6 +150,13 @@
     <Compile Include="Repositories\PositionReviewRepository.cs" />
     <Compile Include="Repositories\PositionTypeRepository.cs" />
     <Compile Include="Settings.cs" />
+    <Compile Include="SummerJobs.aspx.cs">
+      <DependentUpon>SummerJobs.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="SummerJobs.aspx.designer.cs">
+      <DependentUpon>SummerJobs.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Templates\Template-Admin.Master.cs">
       <DependentUpon>Template-Admin.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -144,6 +177,13 @@
     </Compile>
     <Compile Include="Templates\Template-Main.Master.designer.cs">
       <DependentUpon>Template-Main.Master</DependentUpon>
+    </Compile>
+    <Compile Include="viewPosition.aspx.cs">
+      <DependentUpon>viewPosition.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="viewPosition.aspx.designer.cs">
+      <DependentUpon>viewPosition.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup />

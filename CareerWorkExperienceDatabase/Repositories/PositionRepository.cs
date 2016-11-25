@@ -110,7 +110,7 @@ namespace CareerWorkExperienceDatabase
                     {
                         sqlCommand.Connection = connection;
                         sqlCommand.CommandType = CommandType.Text;
-                        sqlCommand.CommandText = "SELECT TOP " + count + " Positions.* FROM Positions LEFT OUTER JOIN Businesses ON Positions.BusinessID=Businesses.ID WHERE BUsinesses.Interested=1 ORDER BY ";
+                        sqlCommand.CommandText = "SELECT TOP " + count + " Positions.* FROM Positions LEFT OUTER JOIN Businesses ON Positions.BusinessID=Businesses.ID WHERE BUsinesses.Interested=1 ORDER BY LastUpdated DESC";
                         sqlCommand.Connection.Open();
 
                         SqlDataReader dataReader = sqlCommand.ExecuteReader();

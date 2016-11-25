@@ -2,11 +2,34 @@
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="body" runat="server">
-    <!-- list of cities -->
-    <asp:Literal ID="litCities" runat="server"></asp:Literal>
-
-    <!-- list of categories -->
-    <asp:Literal ID="litCategories" runat="server"></asp:Literal>
     
+    <table cellspacing="0" cellpadding+"0">
+        <tr>
+            <td width="800" valign="top" align="left">
+                <!-- list of categories -->
+                 <div class="mainPageTitle">Job Categories</div>
+                <asp:Literal ID="litCategories" runat="server"></asp:Literal>
+            </td>
+            <td width="200" rowspan="2" valign="top" align="left">
+                <!-- list of cities -->
+                <asp:Literal ID="litCities" runat="server"></asp:Literal>
+            </td>
+        </tr>
+        <tr>
+            <td valign="top" align="left"> 
+                <div class="mainPageTitle">Recently Updated</div>
+                <!-- list of recently updated positions -->
+                <asp:Literal ID="litUpdatedPositions" runat="server"></asp:Literal>
+
+            </td>
+        </tr>
+    </table>
+    
+    
+ 
+
+   
+    
+   
 
 </asp:Content>

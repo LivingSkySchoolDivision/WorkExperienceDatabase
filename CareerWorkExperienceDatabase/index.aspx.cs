@@ -9,6 +9,9 @@ namespace CareerWorkExperienceDatabase
 {
     public partial class index : System.Web.UI.Page
     {
+        BusinessRepository businessRepo = new BusinessRepository();
+        CityRepository cityRepo = new CityRepository();
+
         protected void Page_Load(object sender, EventArgs e)
         {
             // Load all (interested) positions
@@ -20,6 +23,11 @@ namespace CareerWorkExperienceDatabase
             // Load all categories
             CategoryRepository categoryRepository = new CategoryRepository();
             List<Category> allCategories = categoryRepository.GetAll();
+
+            // Load updated positions 
+            List<Position> lastUpdatedPositions = new List<Position>();
+            lastUpdatedPositions = positionRepo.GetRecentlyUpdated(25);
+
 
             // Put the positions into a dictionary
             Dictionary<Category, List<Position>> positionsByCategory = new Dictionary<Category, List<Position>>();
@@ -74,7 +82,7 @@ namespace CareerWorkExperienceDatabase
             litCategories.Text += "<div class=\"category_list\">";
             foreach(Category cat in positionsByCategory.Keys.OrderBy(c => c.Name))
             {
-                litCategories.Text += "<a href=\"#\">" + cat.Name + " (" + positionsByCategory[cat].Count() +  ")</a>";
+                litCategories.Text += "<a href=\"byCategory.aspx?id=" + cat.ID + "\">" + cat.Name + " (" + positionsByCategory[cat].Count() +  ")</a>";
             }
             litCategories.Text += "</div>";
 
@@ -84,9 +92,43 @@ namespace CareerWorkExperienceDatabase
             litCities.Text += "<div class='floating_menu'>";
             foreach(City city in allCities.OrderBy(c => c.Name))
             {
-                litCities.Text += "<a href=\"#\">" + city.Name + "</a>";
+                litCities.Text += "<a href=\"byLocation.aspx?id=" + city.ID + "\">" + city.Name + "</a>";
             }
             litCities.Text += "</div>";
+
+
+            // Displaying list of recently updated positions
+            litUpdatedPositions.Text= "<div class='updatedPositions'>";
+            foreach (Position pos in lastUpdatedPositions)
+            {
+                litUpdatedPositions.Text += displayUpdatedPosition(pos);
+            }
+            litUpdatedPositions.Text += "</div>";
+
+        }
+
+        string displayUpdatedPosition(Position position)
+        {
+            string returnMe = string.Empty;
+
+            Business positionBusiness = businessRepo.Get(position.BusinessID);
+            
+            if (positionBusiness != null)
+            {
+                City positionCity = cityRepo.Get(positionBusiness.CityID);
+                if (positionCity != null)
+                {
+                    returnMe += "<div class='position'>";
+
+                    returnMe += "<div class='positionName'><a href='viewPosition.aspx?id=" + position.ID + "'>" + position.Name + "</a></div>";
+                    returnMe += "<div class='businessName'>" + positionBusiness.Name +"</div>";
+                    returnMe += "<div class='locationName'>" + positionCity.Name + "</div>";
+
+                    returnMe += "</div>";
+                }
+            }
+
+            return returnMe;
         }
     }
 }
