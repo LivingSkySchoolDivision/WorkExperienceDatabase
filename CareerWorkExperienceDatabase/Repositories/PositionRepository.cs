@@ -11,6 +11,7 @@ namespace CareerWorkExperienceDatabase
     {
         private readonly PositionTypeRepository positionTypeRepo;
         private readonly PositionCategoryRepository positionCategoryRepo;
+        private readonly PositionFlagRepository positionFlagRepo;
 
         private string SQLQuery = "SELECT * FROM Positions";
         
@@ -19,10 +20,14 @@ namespace CareerWorkExperienceDatabase
         {
             positionTypeRepo = new PositionTypeRepository();
             positionCategoryRepo = new PositionCategoryRepository();
+            positionFlagRepo = new PositionFlagRepository();
         }
 
         private Position dataReaderToPosition(SqlDataReader sqlRow)
         {
+            string flagsUnExploded = sqlRow["Flags"].ToString().Trim();
+            List<string> flagStrings = flagsUnExploded.Split(';').ToList<string>();
+
             return new Position()
             {
                 ID = Parsers.ParseInt(sqlRow["ID"].ToString()),
@@ -37,7 +42,9 @@ namespace CareerWorkExperienceDatabase
                 LastUpdatedBy = sqlRow["LastUpdatedBy"].ToString(),
                 Expires = Parsers.ParseDate(sqlRow["Expires"].ToString()),
                 SearchTags = sqlRow["SearchTags"].ToString(),
-                CategoryIDs = positionCategoryRepo.GetCategoriesForPosition(Parsers.ParseInt(sqlRow["ID"].ToString()))
+                CategoryIDs = positionCategoryRepo.GetCategoriesForPosition(Parsers.ParseInt(sqlRow["ID"].ToString())),
+                Flags = positionFlagRepo.Get(flagStrings);
+
             };
         }
 

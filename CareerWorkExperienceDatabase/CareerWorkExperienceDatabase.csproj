@@ -133,6 +133,7 @@
     <Compile Include="Model\City.cs" />
     <Compile Include="Model\COPSCategory.cs" />
     <Compile Include="Model\Position.cs" />
+    <Compile Include="Model\PositionFlag.cs" />
     <Compile Include="Model\PositionNote.cs" />
     <Compile Include="Model\PositionReview.cs" />
     <Compile Include="Model\PositionType.cs" />
@@ -145,6 +146,7 @@
     <Compile Include="Repositories\CityRepository.cs" />
     <Compile Include="Repositories\COPSCategoryRepository.cs" />
     <Compile Include="Repositories\PositionCategoryRepository.cs" />
+    <Compile Include="Repositories\PositionFlagRepository.cs" />
     <Compile Include="Repositories\PositionNoteRepository.cs" />
     <Compile Include="Repositories\PositionRepository.cs" />
     <Compile Include="Repositories\PositionReviewRepository.cs" />

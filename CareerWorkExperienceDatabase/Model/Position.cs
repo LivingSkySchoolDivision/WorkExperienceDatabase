@@ -20,5 +20,11 @@ namespace CareerWorkExperienceDatabase
         public DateTime Expires { get; set; }
         public string SearchTags { get; set; }
         public List<int> CategoryIDs { get; set; }
+        public List<PositionFlag> Flags { get; set; }
+
+        public Position()
+        {
+            this.Flags = new List<PositionFlag>();
+        }
     }
 }
