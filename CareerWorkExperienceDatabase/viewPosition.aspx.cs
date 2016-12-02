@@ -30,7 +30,7 @@ namespace CareerWorkExperienceDatabase
                         if (business != null)
                         {
                             displayBusiness(business);
-                        }
+                        }                       
 
                     }
 
@@ -53,8 +53,17 @@ namespace CareerWorkExperienceDatabase
             CityRepository cityRepo = new CityRepository();
             City city = cityRepo.Get(business.CityID);
 
+            // Display flags
+            litPositionFlags.Text = "";
+            foreach(PositionFlag flag in position.Flags)
+            {
+                litPositionFlags.Text += "<img class=\"position_flag_icon\" src=\"/Images/PositionFlags/" + flag.Icon + "\" alt=\"" + flag.Name + "\">"; 
+            }
+
+            // Display COPS badges
+
             lblPositionName.Text = position.Name;
-            litPositionDescription.Text = position.Description;
+            litPositionDescription.Text = "<div class=\"position_description\">" + position.Description + "</div>";
 
             TableRow positionTypeRow = new TableRow();
             positionTypeRow.Cells.Add(new TableCell() { Text = "Position Type" });
@@ -80,6 +89,9 @@ namespace CareerWorkExperienceDatabase
             lastUpdatedRow.Cells.Add(new TableCell() { Text = "Last Updated On" });
             lastUpdatedRow.Cells.Add(new TableCell() { Text = position.LastUpdated.ToShortDateString() });
             tblPositionDetails.Rows.Add(lastUpdatedRow);
+
+            // Build list of categories
+
 
             TableRow categoriesRow = new TableRow();
             categoriesRow.Cells.Add(new TableCell() { Text = "Categories" });

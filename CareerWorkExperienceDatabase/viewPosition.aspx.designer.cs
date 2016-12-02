@@ -67,6 +67,15 @@ namespace CareerWorkExperienceDatabase {
         protected global::System.Web.UI.WebControls.Table tblBusinessDetails;
         
         /// <summary>
+        /// litPositionFlags control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Literal litPositionFlags;
+        
+        /// <summary>
         /// litCOPSBadges control.
         /// </summary>
         /// <remarks>

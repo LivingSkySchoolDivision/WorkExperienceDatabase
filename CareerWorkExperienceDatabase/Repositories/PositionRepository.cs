@@ -43,7 +43,7 @@ namespace CareerWorkExperienceDatabase
                 Expires = Parsers.ParseDate(sqlRow["Expires"].ToString()),
                 SearchTags = sqlRow["SearchTags"].ToString(),
                 CategoryIDs = positionCategoryRepo.GetCategoriesForPosition(Parsers.ParseInt(sqlRow["ID"].ToString())),
-                Flags = positionFlagRepo.Get(flagStrings);
+                Flags = positionFlagRepo.Get(flagStrings)
 
             };
         }

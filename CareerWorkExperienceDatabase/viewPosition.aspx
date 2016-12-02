@@ -17,7 +17,8 @@
             <td width="33%" align="left" valign="top"> 
                 <asp:Label ID="lblBusinessName" runat="server" Text="Business Name" CssClass="mainPageTitle"></asp:Label>
                 <asp:Table ID="tblBusinessDetails" runat="server"></asp:Table>
-
+                
+                <asp:Literal ID="litPositionFlags" runat="server"></asp:Literal>
                 <asp:Literal ID="litCOPSBadges" runat="server"></asp:Literal>
 
             </td>
