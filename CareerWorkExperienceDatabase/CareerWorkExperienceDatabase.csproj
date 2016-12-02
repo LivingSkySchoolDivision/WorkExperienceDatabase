@@ -70,6 +70,14 @@
     <Content Include="byLocation.aspx" />
     <Content Include="Categories.aspx" />
     <Content Include="Images\lsky_logo_text.png" />
+    <Content Include="Images\PositionFlags\Business_Professional Attire Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\Drivers License Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\High Physical Activity Icon.png" />
+    <Content Include="Images\PositionFlags\Indoor Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\Industrial Attire Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\Outdoor Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\Scrubs Attire Requirement Icon.png" />
+    <Content Include="Images\PositionFlags\Training_Certification Requirement Icon.png" />
     <Content Include="index.aspx" />
     <Content Include="Locations.aspx" />
     <Content Include="packages.config" />
@@ -190,7 +198,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Images\COPSBadges\" />
-    <Folder Include="Images\PositionFlags\" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
