@@ -67,6 +67,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="byCategory.aspx" />
+    <Content Include="byCOPSCategory.aspx" />
     <Content Include="byLocation.aspx" />
     <Content Include="Categories.aspx" />
     <Content Include="Images\COPSBadges\cop8.jpg" />
@@ -120,6 +121,13 @@
     </Compile>
     <Compile Include="byCategory.aspx.designer.cs">
       <DependentUpon>byCategory.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="byCOPSCategory.aspx.cs">
+      <DependentUpon>byCOPSCategory.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="byCOPSCategory.aspx.designer.cs">
+      <DependentUpon>byCOPSCategory.aspx</DependentUpon>
     </Compile>
     <Compile Include="byLocation.aspx.cs">
       <DependentUpon>byLocation.aspx</DependentUpon>

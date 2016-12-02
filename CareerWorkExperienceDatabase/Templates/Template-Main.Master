@@ -4,7 +4,7 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-    <title></title>
+    <title>LSKYSD Career Work Experience Database</title>
     <asp:ContentPlaceHolder ID="head" runat="server"></asp:ContentPlaceHolder>
     <link rel="stylesheet" href="../Styles/MainStyles.css" />
 </head>
@@ -22,6 +22,7 @@
             <a href="/">Home</a>
             <a href="Locations.aspx">Locations</a>
             <a href="Categories.aspx">Categories</a>
+            <a href="WhatAreCOPSCategories.aspx">COPS</a>
             <a href="SummerJobs.aspx">Summer Jobs</a>
           </td>
           <td valign="top" style="text-align: right;"><input type="textbox" value="Search..." style="width: 200px;">
