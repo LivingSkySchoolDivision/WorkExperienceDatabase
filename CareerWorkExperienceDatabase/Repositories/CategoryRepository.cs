@@ -9,12 +9,15 @@ namespace CareerWorkExperienceDatabase
 {
     public class CategoryRepository
     {
+        private COPSCategoryRepository COPSCategoryRepo;
         private string SQLQuery = "SELECT * FROM Categories";
 
         private Dictionary<int, Category> _cache;
 
         public CategoryRepository()
         {
+            COPSCategoryRepo = new COPSCategoryRepository();
+
             _cache = new Dictionary<int, Category>();
 
             using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
@@ -45,12 +48,13 @@ namespace CareerWorkExperienceDatabase
 
         private Category dataReaderToCategory(SqlDataReader sqlRow)
         {
+            int categoryID = Parsers.ParseInt(sqlRow["ID"].ToString());
             return new Category()
             {
-                ID = Parsers.ParseInt(sqlRow["ID"].ToString()),
-                COPSCategoryID = Parsers.ParseInt(sqlRow["COPSCategoryID"].ToString()),
+                ID = categoryID,
                 Name = sqlRow["Name"].ToString(),
                 Description = sqlRow["Description"].ToString(),
+                COPSCategories = COPSCategoryRepo.GetForCategory(categoryID)
             };
         }
         

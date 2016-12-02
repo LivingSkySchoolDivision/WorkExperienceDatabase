@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
@@ -11,7 +12,7 @@ namespace CareerWorkExperienceDatabase
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrEmpty(Request.QueryString["id"]) == false);
+            if (string.IsNullOrEmpty(Request.QueryString["id"]) == false)
             {
                 string idString = Request.QueryString["id"];
                 int id = Parsers.ParseInt(idString);
@@ -54,13 +55,24 @@ namespace CareerWorkExperienceDatabase
             City city = cityRepo.Get(business.CityID);
 
             // Display flags
-            litPositionFlags.Text = "";
-            foreach(PositionFlag flag in position.Flags)
+            litPositionFlags.Text = "<div class=\"position_flags\">";
+            foreach (PositionFlag flag in position.Flags)
             {
-                litPositionFlags.Text += "<img class=\"position_flag_icon\" src=\"/Images/PositionFlags/" + flag.Icon + "\" alt=\"" + flag.Name + "\">"; 
+                litPositionFlags.Text += "<img class=\"position_flag_icon\" src=\"/Images/PositionFlags/" + flag.Icon + "\" alt=\"" + flag.Name + "\" title=\"" + flag.Name + "\n" + flag.Description + "\">";
             }
+            litPositionFlags.Text += "</div>";
 
             // Display COPS badges
+            if (position.COPSCategories.Count > 0)
+            {
+                litCOPSBadges.Text = "<div class=\"COPS_badges\">";
+                litCOPSBadges.Text = "<div class=\"mainPageTitle\"><a href=\"WhatAreCOPSCategories.aspx\">COPS Categories</a></div>";
+                foreach (COPSCategory copscat in position.COPSCategories)
+                {
+                    litCOPSBadges.Text += "<img class=\"cops_badge\" src=\"/Images/COPSBadges/" + copscat.Icon + "\" ALT=\"\" TITLE=\"" + copscat.Number + ": " + copscat.Name + "\n" + copscat.Description + "\">";
+                }
+                litCOPSBadges.Text += "</div>";
+            }
 
             lblPositionName.Text = position.Name;
             litPositionDescription.Text = "<div class=\"position_description\">" + position.Description + "</div>";
@@ -91,11 +103,28 @@ namespace CareerWorkExperienceDatabase
             tblPositionDetails.Rows.Add(lastUpdatedRow);
 
             // Build list of categories
+            string categories = "None";
+            if (position.Categories.Count > 0)
+            {
+                StringBuilder categoryBuilder = new StringBuilder();
+                foreach(Category cat in position.Categories)
+                {
+                    categoryBuilder.Append("<a href=\"/byCategory.aspx?id=" + cat.ID + "\">");
+                    categoryBuilder.Append(cat.Name);
+                    categoryBuilder.Append("</a>");
+                    categoryBuilder.Append(", ");
+                }
 
+                // remove the final ", " from the end of the string
+                categoryBuilder.Remove(categoryBuilder.Length - 2, 2);
+
+                categories = categoryBuilder.ToString();
+            }
+            
 
             TableRow categoriesRow = new TableRow();
             categoriesRow.Cells.Add(new TableCell() { Text = "Categories" });
-            categoriesRow.Cells.Add(new TableCell() { Text = "" });
+            categoriesRow.Cells.Add(new TableCell() { Text = categories });
             tblPositionDetails.Rows.Add(categoriesRow);
 
 

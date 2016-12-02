@@ -69,6 +69,20 @@
     <Content Include="byCategory.aspx" />
     <Content Include="byLocation.aspx" />
     <Content Include="Categories.aspx" />
+    <Content Include="Images\COPSBadges\cop8.jpg" />
+    <Content Include="Images\COPSBadges\cop1.jpg" />
+    <Content Include="Images\COPSBadges\cop10.jpg" />
+    <Content Include="Images\COPSBadges\cop11.jpg" />
+    <Content Include="Images\COPSBadges\cop12.jpg" />
+    <Content Include="Images\COPSBadges\cop13.jpg" />
+    <Content Include="Images\COPSBadges\cop14.jpg" />
+    <Content Include="Images\COPSBadges\cop2.jpg" />
+    <Content Include="Images\COPSBadges\cop3.jpg" />
+    <Content Include="Images\COPSBadges\cop4.jpg" />
+    <Content Include="Images\COPSBadges\cop5.jpg" />
+    <Content Include="Images\COPSBadges\cop6.jpg" />
+    <Content Include="Images\COPSBadges\cop7.jpg" />
+    <Content Include="Images\COPSBadges\cop9.jpg" />
     <Content Include="Images\lsky_logo_text.png" />
     <Content Include="Images\PositionFlags\BusinessProfessionalAttireRequirementIcon.png" />
     <Content Include="Images\PositionFlags\DriversLicenseRequirementIcon.png" />
@@ -87,6 +101,7 @@
     <Content Include="Templates\Template-Login.Master" />
     <Content Include="Templates\Template-Admin.Master" />
     <Content Include="viewPosition.aspx" />
+    <Content Include="WhatAreCOPSCategories.aspx" />
     <None Include="Properties\PublishProfiles\WorkExperience.pubxml" />
     <None Include="Web.config.Debug.TEMPLATE">
       <DependentUpon>Web.config.TEMPLATE</DependentUpon>
@@ -120,6 +135,7 @@
     <Compile Include="Categories.aspx.designer.cs">
       <DependentUpon>Categories.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ExtentionMethods\ListExtentionMethods.cs" />
     <Compile Include="index.aspx.cs">
       <DependentUpon>index.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -195,10 +211,15 @@
     <Compile Include="viewPosition.aspx.designer.cs">
       <DependentUpon>viewPosition.aspx</DependentUpon>
     </Compile>
+    <Compile Include="WhatAreCOPSCategories.aspx.cs">
+      <DependentUpon>WhatAreCOPSCategories.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="WhatAreCOPSCategories.aspx.designer.cs">
+      <DependentUpon>WhatAreCOPSCategories.aspx</DependentUpon>
+    </Compile>
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Images\COPSBadges\" />
-  </ItemGroup>
+  <ItemGroup />
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

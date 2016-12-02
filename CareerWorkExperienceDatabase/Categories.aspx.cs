@@ -17,7 +17,7 @@ namespace CareerWorkExperienceDatabase
             litCategories.Text += "<div class=\"category_list\">";
             foreach (Category cat in allCategories.OrderBy(c => c.Name))
             {
-                litCategories.Text += "<a href=\"#\">" + cat.Name + "</a>";
+                litCategories.Text += "<a href=\"/byCategory.aspx?id=" + cat.ID + "\">" + cat.Name + "</a>";
             }
             litCategories.Text += "</div>";
         }

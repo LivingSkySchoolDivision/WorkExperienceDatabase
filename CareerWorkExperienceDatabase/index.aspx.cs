@@ -11,6 +11,7 @@ namespace CareerWorkExperienceDatabase
     {
         BusinessRepository businessRepo = new BusinessRepository();
         CityRepository cityRepo = new CityRepository();
+        CategoryRepository categoryRepo = new CategoryRepository();
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -19,61 +20,46 @@ namespace CareerWorkExperienceDatabase
             List<Position> allPositions = positionRepo.GetInterestedPositions();
             
             // Subtract the ones that aren't filled somehow?
-
-            // Load all categories
-            CategoryRepository categoryRepository = new CategoryRepository();
-            List<Category> allCategories = categoryRepository.GetAll();
-
+            
             // Load updated positions 
             List<Position> lastUpdatedPositions = new List<Position>();
             lastUpdatedPositions = positionRepo.GetRecentlyUpdated(25);
 
-
-            // Put the positions into a dictionary
-            Dictionary<Category, List<Position>> positionsByCategory = new Dictionary<Category, List<Position>>();
-
-            Category uncategorized = new Category
-            {
-                ID = -1,
-                Name = "Uncategorized"
-            };
+            // Put the positions into a dictionary, so we can count their categories
+            Dictionary<int, List<Position>> positionsByCategoryID = new Dictionary<int, List<Position>>();
+            List<Position> positionsWithoutCategories = new List<Position>();
 
             foreach(Position pos in allPositions)
             {
-                // Get a list of categories this position is in
-                List<int> thisPositionCategories = pos.CategoryIDs;
-
-                // Add each of those categories to the dictionary if they don't already exist
-                foreach (int catID in thisPositionCategories)
+                if (pos.Categories.Count == 0)
                 {
-                    Category thisCategory = categoryRepository.Get(catID);
-
-                    // If this category exists
-                    if (thisCategory != null)
-                    {
-                        if (!positionsByCategory.ContainsKey(thisCategory))
-                        {
-                            positionsByCategory.Add(thisCategory, new List<Position>());
-                        }
-                    }
-
-                    if (!positionsByCategory[thisCategory].Contains(pos))
-                    {
-                        positionsByCategory[thisCategory].Add(pos);
-                    }
+                    positionsWithoutCategories.Add(pos);
                 }
 
-                if (thisPositionCategories.Count == 0)
+                foreach(Category cat in pos.Categories)
                 {
-                    if (!positionsByCategory.ContainsKey(uncategorized))
+                    if (!positionsByCategoryID.ContainsKey(cat.ID))
                     {
-                        positionsByCategory.Add(uncategorized, new List<Position>());
+                        positionsByCategoryID.Add(cat.ID, new List<Position>());
                     }
-                    positionsByCategory[uncategorized].Add(pos);
+                    positionsByCategoryID[cat.ID].Add(pos);
                 }
-            }        
-                
-                
+            }
+                        
+            Dictionary<Category, List<Position>> positionsByCategory = new Dictionary<Category, List<Position>>();
+            if (positionsWithoutCategories.Count > 0)
+            {
+                positionsByCategory.Add(new Category() { Name = "Uncategorized", ID = 0, Description = "Positions without a category" }, positionsWithoutCategories);
+            }
+
+
+            foreach(int categoryID in positionsByCategoryID.Keys)
+            {
+                Category cat = categoryRepo.Get(categoryID);
+                if (cat != null) {
+                    positionsByCategory.Add(cat, positionsByCategoryID[cat.ID]);
+                }
+            }                
                                     
             // Build list of categories
             // Only want to display categories that have positions in them
