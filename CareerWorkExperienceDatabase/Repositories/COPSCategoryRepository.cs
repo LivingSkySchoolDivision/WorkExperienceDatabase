@@ -132,5 +132,58 @@ namespace CareerWorkExperienceDatabase
         {
             return GetForCategory(category.ID);
         }
+
+
+        public void Insert(COPSCategory thisCOPSCategory)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText =
+                        "INSERT INTO " +
+                        "Businesses(Number,Name,Description,Icon) " +
+                        "VALUES(@NUMBER,@NAME,@DESCRIPTION,@ICON)";
+
+                    sqlCommand.Parameters.AddWithValue("NUMBER", thisCOPSCategory.Number);
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCOPSCategory.Name);
+                    sqlCommand.Parameters.AddWithValue("DESCRIPTION", thisCOPSCategory.Description);
+                    sqlCommand.Parameters.AddWithValue("ICON", thisCOPSCategory.Icon);
+                    
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
+
+        public void Update(COPSCategory thisCOPSCategory)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "UPDATE copscategories SET " +
+                       "number=@NUMBER, name=@NAME, description=@DESCRIPTION, icon=@ICON " +
+                       "WHERE id=@ID";
+
+                    sqlCommand.Parameters.AddWithValue("ID", thisCOPSCategory.ID);
+                    sqlCommand.Parameters.AddWithValue("NUMBER", thisCOPSCategory.Number);
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCOPSCategory.Name);
+                    sqlCommand.Parameters.AddWithValue("DESCRIPTION", thisCOPSCategory.Description);
+                    sqlCommand.Parameters.AddWithValue("ICON", thisCOPSCategory.Icon);
+                    
+
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
+
     }
 }

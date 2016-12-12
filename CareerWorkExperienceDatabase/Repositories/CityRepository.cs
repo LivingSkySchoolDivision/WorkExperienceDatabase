@@ -81,6 +81,50 @@ namespace CareerWorkExperienceDatabase
         }
 
 
+        public void Insert(City thisCity)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText =
+                        "INSERT INTO " +
+                        "Cities(Name) " +
+                        "VALUES(@NAME)";
 
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCity.Name);
+                
+
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
+
+        public void Update(City thisCity)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "UPDATE cities SET " +
+                       "name=@NAME " +
+                       "WHERE id=@ID";
+
+                    sqlCommand.Parameters.AddWithValue("ID", thisCity.ID);
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCity.Name);
+                   
+
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
     }
 }

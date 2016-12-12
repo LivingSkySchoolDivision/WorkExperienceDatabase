@@ -122,6 +122,54 @@ namespace CareerWorkExperienceDatabase
             return returnMe;
         }
 
+        public void Insert(Category thisCategory)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText =
+                        "INSERT INTO " +
+                        "Categories(Name,Description,COPSCategories) " +
+                        "VALUES(@NAME,@DESCRIPTION,@COPSCATEGORIES)";
+
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCategory.Name);
+                    sqlCommand.Parameters.AddWithValue("DESCRIPTION", thisCategory.Description);
+                    sqlCommand.Parameters.AddWithValue("COPSCATEGORIES", thisCategory.COPSCategories);
+                    
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
+
+        public void Update(Category thisCategory)
+        {
+            using (SqlConnection connection = new SqlConnection(Settings.ConnectionString))
+            {
+                using (SqlCommand sqlCommand = new SqlCommand())
+                {
+                    sqlCommand.Connection = connection;
+                    sqlCommand.CommandType = CommandType.Text;
+                    sqlCommand.CommandText = "UPDATE categories SET " +
+                       "name=@NAME, Description=@DESCRIPTION, COPSCategories=@COPSCATEGORIES " + 
+                       "WHERE id=@ID";
+
+                    sqlCommand.Parameters.AddWithValue("ID", thisCategory.ID);
+                    sqlCommand.Parameters.AddWithValue("NAME", thisCategory.Name);
+                    sqlCommand.Parameters.AddWithValue("DESCRIPTION", thisCategory.Description);
+                    sqlCommand.Parameters.AddWithValue("COPSCATEGORIES", thisCategory.COPSCategories);
+                    
+
+                    sqlCommand.Connection.Open();
+                    sqlCommand.ExecuteNonQuery();
+                    sqlCommand.Connection.Close();
+                }
+            }
+        }
     }
 }
  
